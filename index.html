@@ -1,3 +1,286 @@
-<h1> My name is Machar Kuot</h1>
-<h2> My admission number is 26-0695</h2>
-<h2> This is my Sunrise Basketball Club webside</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuru Basketball Club</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+        
+        nav {
+            background: #1e2937;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+        }
+        
+        nav a:hover {
+            color: #60a5fa;
+        }
+        
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/random/1600x900/?basketball');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        section {
+            padding: 4rem 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h2 {
+            color: #1e40af;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 2.2rem;
+        }
+        
+        .about {
+            background: white;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .lists {
+            background: #e0f2fe;
+        }
+        
+        .list-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        ul, ol {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+        }
+        
+        .video-section {
+            background: white;
+            text-align: center;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 2rem auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .join-btn {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 2rem;
+            transition: all 0.3s;
+        }
+        
+        .join-btn:hover {
+            background: #1e40af;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background: #1e2937;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .social a {
+            color: #60a5fa;
+            margin: 0 1rem;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">NURU</div>
+        <div class="tagline">Basketball Club • Nairobi</div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#about">About Us</a>
+        <a href="#team">Team</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#video">Watch Us Play</a>
+        <a href="#join">Join Us</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>NURU BASKETBALL CLUB</h1>
+            <p>Shining Bright • Playing Hard • Building Champions</p>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Nuru Basketball Club</h2>
+        <div class="content">
+            <div>
+                <p>Nuru Basketball Club was founded in 2018 with a mission to develop young talent, promote teamwork, and bring the love of basketball to the community in Nairobi.</p>
+                <p>We believe basketball is more than just a sport — it's a tool for discipline, leadership, and personal growth.</p>
+            </div>
+            <div>
+                <h3>Our Values</h3>
+                <ul>
+                    <li>Respect</li>
+                    <li>Discipline</li>
+                    <li>Teamwork</li>
+                    <li>Excellence</li>
+                    <li>Community Service</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lists Section -->
+    <section id="team" class="lists">
+        <h2>Our Club</h2>
+        <div class="list-container">
+            <!-- Unordered List -->
+            <div>
+                <h3 style="text-align:center; color:#1e40af; margin-bottom:1rem;">Senior Team Members</h3>
+                <ul>
+                    <li>Michael Kamau - Captain (Point Guard)</li>
+                    <li>Faith Wanjiku - Vice Captain (Forward)</li>
+                    <li>David Omondi - Shooting Guard</li>
+                    <li>Esther Njeri - Center</li>
+                    <li>Kevin Mwangi - Power Forward</li>
+                </ul>
+            </div>
+            
+            <!-- Ordered List -->
+            <div>
+                <h3 style="text-align:center; color:#1e40af; margin-bottom:1rem;">Major Achievements</h3>
+                <ol>
+                    <li>1st Place - Nairobi Youth League 2025</li>
+                    <li>2nd Place - Kenya National Basketball Championship 2024</li>
+                    <li>Semi-Finalist - East Africa Basketball Cup 2023</li>
+                    <li>Community Service Award 2024</li>
+                    <li>Most Improved Club 2022</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section id="video" class="video-section">
+        <h2>Watch Us in Action</h2>
+        <div class="video-container">
+            <iframe width="560" height="315" 
+                src="https://www.youtube.com/embed/5K6f2bD6u9M" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <p><strong>Highlights from our 2025 Season</strong></p>
+    </section>
+
+    <!-- Join Us -->
+    <section id="join" style="background: #1e40af; color: white; text-align: center;">
+        <h2 style="color:white;">Be Part of Something Great</h2>
+        <p style="font-size: 1.3rem; max-width: 700px; margin: 1.5rem auto;">
+            Whether you're a beginner or a seasoned player, there's a place for you at Nuru Basketball Club.
+        </p>
+        <a href="#" class="join-btn">JOIN THE TEAM TODAY</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Nuru Basketball Club • Nairobi, Kenya</p>
+        <div class="social">
+            <a href="https://instagram.com" target="_blank">📷 Instagram</a>
+            <a href="https://facebook.com" target="_blank">📘 Facebook</a>
+            <a href="https://twitter.com" target="_blank">𝕏 Twitter</a>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            Contact: +254 700 123 456 | <a href="mailto:info@nurubasketball.com" style="color:#60a5fa;">info@nurubasketball.com</a>
+        </p>
+    </footer>
+</body>
+</html>
