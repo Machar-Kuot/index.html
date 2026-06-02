@@ -1,286 +1,452 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuru Basketball Club</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        
-        .logo {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-        
-        .tagline {
-            font-size: 1.2rem;
-            font-style: italic;
-        }
-        
-        nav {
-            background: #1e2937;
-            padding: 1rem;
-            text-align: center;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-weight: bold;
-        }
-        
-        nav a:hover {
-            color: #60a5fa;
-        }
-        
-        .hero {
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/random/1600x900/?basketball');
-            background-size: cover;
-            background-position: center;
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-        }
-        
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        section {
-            padding: 4rem 10%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        h2 {
-            color: #1e40af;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            font-size: 2.2rem;
-        }
-        
-        .about {
-            background: white;
-        }
-        
-        .content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        
-        .lists {
-            background: #e0f2fe;
-        }
-        
-        .list-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-        
-        ul, ol {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        
-        li {
-            margin-bottom: 0.8rem;
-            padding-left: 0.5rem;
-        }
-        
-        .video-section {
-            background: white;
-            text-align: center;
-        }
-        
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            max-width: 800px;
-            margin: 2rem auto;
-            border-radius: 12px;
-            box-shadow: 0 10px 15px rgba(0,0,0,0.2);
-        }
-        
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .join-btn {
-            display: inline-block;
-            background: #3b82f6;
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 2rem;
-            transition: all 0.3s;
-        }
-        
-        .join-btn:hover {
-            background: #1e40af;
-            transform: scale(1.05);
-        }
-        
-        footer {
-            background: #1e2937;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-        }
-        
-        .social a {
-            color: #60a5fa;
-            margin: 0 1rem;
-            font-size: 1.5rem;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Cobra Sports | Nara Basketball Club – First to BAL</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #f5f2e8 0%, #e8e5dc 100%);
+      color: #1e2a2e;
+      line-height: 1.5;
+      padding: 2rem 1.5rem;
+    }
+
+    /* main container */
+    .page {
+      max-width: 1280px;
+      margin: 0 auto;
+      background: #ffffffdd;
+      backdrop-filter: blur(2px);
+      border-radius: 2rem;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+      padding: 2rem 1.8rem;
+      border: 1px solid rgba(230, 126, 34, 0.2);
+    }
+
+    /* header + branding */
+    .brand {
+      text-align: center;
+      margin-bottom: 2rem;
+      border-bottom: 3px solid #e67e22;
+      display: inline-block;
+      width: 100%;
+      padding-bottom: 0.75rem;
+    }
+    h1 {
+      font-size: 2.8rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #c0392b, #e67e22);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 0.4rem;
+    }
+    .tagline {
+      font-size: 1.1rem;
+      color: #2c3e2f;
+      font-weight: 500;
+      background: #fdf8ed;
+      display: inline-block;
+      padding: 0.2rem 1.2rem;
+      border-radius: 40px;
+    }
+    .club-highlight {
+      background: #2c3e2f;
+      color: #ffdd99;
+      display: inline-block;
+      padding: 0.3rem 1.2rem;
+      border-radius: 60px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    /* navigation hyperlink row */
+    .nav-links {
+      background: #2c3e2f;
+      padding: 0.8rem 1.5rem;
+      border-radius: 60px;
+      margin: 1.5rem 0 2rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    .nav-links a {
+      color: #f9e0a8;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.2rem;
+      transition: all 0.2s ease;
+      padding: 0.2rem 0;
+      border-bottom: 2px solid transparent;
+    }
+    .nav-links a:hover {
+      color: #ffb347;
+      border-bottom-color: #ffb347;
+      transform: translateY(-2px);
+    }
+
+    /* section styling */
+    section {
+      background: rgba(255, 248, 235, 0.85);
+      border-radius: 1.8rem;
+      padding: 1.5rem 2rem;
+      margin-bottom: 2.2rem;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+      transition: 0.1s;
+    }
+    h2 {
+      font-size: 1.9rem;
+      border-left: 7px solid #e67e22;
+      padding-left: 1rem;
+      margin-bottom: 1.2rem;
+      color: #2c3e2f;
+      font-weight: 700;
+    }
+    h3 {
+      font-size: 1.4rem;
+      color: #a55117;
+      margin: 0.8rem 0 0.5rem 0;
+    }
+
+    /* list styling */
+    .list-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+    .list-card {
+      flex: 1;
+      min-width: 200px;
+      background: #fffef7;
+      padding: 1rem 1.5rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .list-card h3 {
+      margin-top: 0;
+      border-left: 4px solid #e67e22;
+      padding-left: 0.6rem;
+    }
+    ul, ol {
+      margin-left: 1.5rem;
+      padding-left: 0.2rem;
+    }
+    li {
+      margin: 0.5rem 0;
+      font-weight: 500;
+    }
+
+    /* image gallery / basketball pictures */
+    .image-showcase {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin: 1.8rem 0 1rem;
+    }
+    .hoop-card {
+      background: #fffcf5;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+      flex: 1;
+      min-width: 200px;
+      transition: transform 0.2s ease;
+      text-align: center;
+    }
+    .hoop-card:hover {
+      transform: translateY(-5px);
+    }
+    .hoop-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 3px solid #e67e22;
+    }
+    .img-caption {
+      padding: 0.7rem;
+      font-weight: 600;
+      background: #fdf3e0;
+      color: #b64926;
+      font-size: 0.9rem;
+    }
+    .hero-img {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .hero-img img {
+      max-width: 100%;
+      border-radius: 1.5rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      border: 2px solid #ffcf9a;
+      max-height: 280px;
+      width: auto;
+      object-fit: cover;
+    }
+
+    /* table style */
+    .roster-table {
+      overflow-x: auto;
+      margin-top: 1rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffffd9;
+      border-radius: 1.2rem;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    th {
+      background-color: #c0392b;
+      color: white;
+      padding: 12px 10px;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    td {
+      border-bottom: 1px solid #e0c8a8;
+      padding: 10px 8px;
+      text-align: center;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    tr:hover td {
+      background-color: #fef5e3;
+    }
+    .highlight-player {
+      font-weight: bold;
+      color: #b64926;
+    }
+
+    /* youtube video container */
+    .video-container {
+      text-align: center;
+      margin: 1rem 0 0.5rem;
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+      border-radius: 1.2rem;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+      background: #000;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-caption {
+      font-size: 0.85rem;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      font-size: 0.85rem;
+      color: #5c4b32;
+      border-top: 1px dashed #d4b48c;
+    }
+
+    @media (max-width: 680px) {
+      body {
+        padding: 1rem;
+      }
+      .page {
+        padding: 1rem;
+      }
+      .nav-links {
+        gap: 1rem;
+      }
+      .nav-links a {
+        font-size: 1rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      section {
+        padding: 1rem 1.2rem;
+      }
+      .list-card {
+        min-width: 100%;
+      }
+      .hoop-card img {
+        height: 160px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="logo">NURU</div>
-        <div class="tagline">Basketball Club • Nairobi</div>
-    </header>
+<div class="page">
+  <!-- Header & Identity -->
+  <div class="brand">
+    <h1>🐍 COBRA SPORTS</h1>
+    <div class="tagline">⚡ Community | Grit | Brotherhood ⚡</div>
+    <div class="club-highlight">🏀 NARA BASKETBALL CLUB — First Team to reach Basketball African League 🏆</div>
+  </div>
 
-    <!-- Navigation -->
-    <nav>
-        <a href="#about">About Us</a>
-        <a href="#team">Team</a>
-        <a href="#achievements">Achievements</a>
-        <a href="#video">Watch Us Play</a>
-        <a href="#join">Join Us</a>
-    </nav>
+  <!-- 1. Navigation hyperlink (multiple links, classic nav) -->
+  <div class="nav-links">
+    <a href="#home">🏠 HOME</a>
+    <a href="#about-club">📖 ABOUT NBC</a>
+    <a href="#achievements">🏅 HISTORY</a>
+    <a href="#roster">📋 ROSTER</a>
+    <a href="#media">🎥 MEDIA</a>
+    <a href="#gallery">📸 GALLERY</a>
+  </div>
 
-    <!-- Hero Section -->
-    <div class="hero">
-        <div class="hero-content">
-            <h1>NURU BASKETBALL CLUB</h1>
-            <p>Shining Bright • Playing Hard • Building Champions</p>
-        </div>
+  <!-- Intro / about community organization + hero basketball image -->
+  <section id="home">
+    <h2>⚡ Cobra Sports · Hoops Legacy</h2>
+    <!-- Basketball picture #1: action scene representing African basketball -->
+    <div class="hero-img">
+      <img src="https://picsum.photos/id/20/900/350" alt="Basketball action - African league spirit" style="width:100%; max-height:280px; object-fit:cover;">
     </div>
+    <p><strong>Cobra Sports</strong> is a dynamic community organization rooted in passion for basketball, youth development, and African excellence. Under its flagship, <strong>Nara Basketball Club (NBC)</strong> has become a powerhouse — the very <strong>first team in history to qualify for the prestigious Basketball African League</strong> from our region. We unite players, coaches, and fans across generations, building champions on and off the court.</p>
+    <p>From dusty courts to continental glory, Cobra Sports empowers grassroots talent and creates opportunities. Nara BC is the heartbeat of our mission, breaking barriers and flying the flag high in the BAL.</p>
+    <!-- Additional picture: team huddle (basketball themed) -->
+    <div style="margin-top: 1.2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <img src="https://picsum.photos/id/453/300/180" alt="Basketball team huddle" style="border-radius: 1rem; width: 100%; max-width: 280px; object-fit:cover; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+      <img src="https://picsum.photos/id/26/300/180" alt="Nara Basketball court celebration" style="border-radius: 1rem; width: 100%; max-width: 280px; object-fit:cover; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+    </div>
+  </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <h2>About Nuru Basketball Club</h2>
-        <div class="content">
-            <div>
-                <p>Nuru Basketball Club was founded in 2018 with a mission to develop young talent, promote teamwork, and bring the love of basketball to the community in Nairobi.</p>
-                <p>We believe basketball is more than just a sport — it's a tool for discipline, leadership, and personal growth.</p>
-            </div>
-            <div>
-                <h3>Our Values</h3>
-                <ul>
-                    <li>Respect</li>
-                    <li>Discipline</li>
-                    <li>Teamwork</li>
-                    <li>Excellence</li>
-                    <li>Community Service</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+  <!-- 2. Unordered List & 3. Ordered List (side by side) -->
+  <section id="about-club">
+    <h2>🏀 Inside Nara Basketball Club</h2>
+    <div class="list-wrapper">
+      <!-- Unordered List: club core values -->
+      <div class="list-card">
+        <h3>🔥 CORE VALUES</h3>
+        <ul>
+          <li>🐍 <strong>Resilience</strong> – never back down</li>
+          <li>🤝 <strong>Unity</strong> – one team, one dream</li>
+          <li>🌟 <strong>African Pride</strong> – representing the continent</li>
+          <li>📈 <strong>Excellence</strong> – first to BAL, first in spirit</li>
+          <li>🏆 <strong>Community First</strong> – youth camps & outreach</li>
+        </ul>
+      </div>
+      <!-- Ordered List: Milestones & path to African League -->
+      <div class="list-card">
+        <h3>📅 PATH TO AFRICAN LEAGUE</h3>
+        <ol>
+          <li>🥇 <strong>2021</strong> – Regional champions, West Africa qualifiers</li>
+          <li>🏅 <strong>2022</strong> – Undefeated in National Elite League</li>
+          <li>🌍 <strong>2023</strong> – BAL qualifying tournament winners</li>
+          <li>✈️ <strong>2024</strong> – Historic debut in Basketball African League</li>
+          <li>⭐ <strong>2025</strong> – Quarterfinalists & future contenders</li>
+        </ol>
+      </div>
+    </div>
+    <!-- basketball picture related to champions -->
+    <div style="margin-top: 1.2rem; text-align: center;">
+      <img src="https://picsum.photos/id/841/600/200" alt="Basketball trophy and celebration" style="border-radius: 1.2rem; width:100%; max-width:500px; box-shadow:0 5px 12px rgba(0,0,0,0.1);">
+    </div>
+    <p style="margin-top: 1rem; background:#fff0dd; border-radius: 20px; padding: 0.5rem 1rem; font-weight:500;">✅ <strong>First Team to go to Basketball African League</strong> — Nara Basketball Club made history as pioneers!</p>
+  </section>
 
-    <!-- Lists Section -->
-    <section id="team" class="lists">
-        <h2>Our Club</h2>
-        <div class="list-container">
-            <!-- Unordered List -->
-            <div>
-                <h3 style="text-align:center; color:#1e40af; margin-bottom:1rem;">Senior Team Members</h3>
-                <ul>
-                    <li>Michael Kamau - Captain (Point Guard)</li>
-                    <li>Faith Wanjiku - Vice Captain (Forward)</li>
-                    <li>David Omondi - Shooting Guard</li>
-                    <li>Esther Njeri - Center</li>
-                    <li>Kevin Mwangi - Power Forward</li>
-                </ul>
-            </div>
-            
-            <!-- Ordered List -->
-            <div>
-                <h3 style="text-align:center; color:#1e40af; margin-bottom:1rem;">Major Achievements</h3>
-                <ol>
-                    <li>1st Place - Nairobi Youth League 2025</li>
-                    <li>2nd Place - Kenya National Basketball Championship 2024</li>
-                    <li>Semi-Finalist - East Africa Basketball Cup 2023</li>
-                    <li>Community Service Award 2024</li>
-                    <li>Most Improved Club 2022</li>
-                </ol>
-            </div>
-        </div>
-    </section>
+  <!-- 4. Table: showing starting lineup / key players -->
+  <section id="roster">
+    <h2>📊 STARTERS & STATS (2025 BAL Season)</h2>
+    <div class="roster-table">
+      <table>
+        <thead>
+          <tr><th>Player</th><th>Position</th><th>PPG</th><th>Nationality</th><th>Honor</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="highlight-player">Kofi Mensah</td><td>Point Guard</td><td>18.4</td><td>🇬🇭 Ghana</td><td>BAL All-Star</td></tr>
+          <tr><td class="highlight-player">Amara Diop</td><td>Shooting Guard</td><td>22.1</td><td>🇸🇳 Senegal</td><td>Top Scorer QF</td></tr>
+          <tr><td>Liam Ochieng</td><td>Small Forward</td><td>14.7</td><td>🇰🇪 Kenya</td><td>Defensive Ace</td></tr>
+          <tr><td>Thabo Nkosi</td><td>Power Forward</td><td>12.3</td><td>🇿🇦 South Africa</td><td>Rebound Leader</td></tr>
+          <tr><td>Youssef El Amari</td><td>Center</td><td>15.9</td><td>🇲🇦 Morocco</td><td>Block Party</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top: 0.7rem; font-size:0.9rem;">⭐ Nara BC's roster blends experience and youth — the first team to ever bring BAL glory to our community.</p>
+    <!-- Basketball picture: players in action -->
+    <div style="margin-top: 1.4rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <img src="https://picsum.photos/id/164/250/150" alt="Basketball player dunk" style="border-radius: 1rem; width: 100%; max-width: 240px; object-fit:cover;">
+      <img src="https://picsum.photos/id/91/250/150" alt="Basketball game action" style="border-radius: 1rem; width: 100%; max-width: 240px; object-fit:cover;">
+    </div>
+  </section>
 
-    <!-- Video Section -->
-    <section id="video" class="video-section">
-        <h2>Watch Us in Action</h2>
-        <div class="video-container">
-            <iframe width="560" height="315" 
-                src="https://www.youtube.com/embed/5K6f2bD6u9M" 
-                title="YouTube video player" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
-        </div>
-        <p><strong>Highlights from our 2025 Season</strong></p>
-    </section>
+  <!-- 5. YouTube Video: Inspirational Basketball African League / Nara Highlights -->
+  <section id="media">
+    <h2>🎬 NBC IN ACTION | FIRST BAL EXPERIENCE</h2>
+    <div class="video-container">
+      <div class="video-wrapper">
+        <!-- YouTube video embed: authentic Basketball Africa League highlights (BAL official style) -->
+        <iframe 
+          src="https://www.youtube.com/embed/hEwzRJYc2yY" 
+          title="Basketball Africa League Highlights | The Rise of African Basketball" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-caption">🔥 Watch: Basketball Africa League intensity — Nara Basketball Club made history as the first team from our community to compete at this stage!</div>
+    </div>
+    <p style="margin-top: 0.8rem;"><strong>🏆 Milestone moment:</strong> Nara BC’s journey to the Basketball African League inspired thousands of young athletes across the continent. Watch the energy, the dunks, and the spirit that defines Cobra Sports.</p>
+  </section>
 
-    <!-- Join Us -->
-    <section id="join" style="background: #1e40af; color: white; text-align: center;">
-        <h2 style="color:white;">Be Part of Something Great</h2>
-        <p style="font-size: 1.3rem; max-width: 700px; margin: 1.5rem auto;">
-            Whether you're a beginner or a seasoned player, there's a place for you at Nuru Basketball Club.
-        </p>
-        <a href="#" class="join-btn">JOIN THE TEAM TODAY</a>
-    </section>
+  <!-- ADDITIONAL BASKETBALL PICTURES GALLERY SECTION (more images) -->
+  <section id="gallery">
+    <h2>📸 BASKETBALL SPIRIT · COBRA & NARA IN FOCUS</h2>
+    <div class="image-showcase">
+      <div class="hoop-card">
+        <img src="https://picsum.photos/id/432/400/240" alt="Youth basketball training">
+        <div class="img-caption">🏀 Future Stars – Cobra Sports Academy</div>
+      </div>
+      <div class="hoop-card">
+        <img src="https://picsum.photos/id/856/400/240" alt="Nara Basketball Club celebration BAL">
+        <div class="img-caption">🎉 Nara BC celebrating BAL qualification</div>
+      </div>
+      <div class="hoop-card">
+        <img src="https://picsum.photos/id/163/400/240" alt="Intense match action">
+        <div class="img-caption">🔥 First Team to BAL – Game intensity</div>
+      </div>
+    </div>
+    <div class="image-showcase" style="margin-top: 0.5rem;">
+      <div class="hoop-card">
+        <img src="https://picsum.photos/id/29/400/240" alt="Basketball court community">
+        <div class="img-caption">🌍 Community courts – Cobra roots</div>
+      </div>
+      <div class="hoop-card">
+        <img src="https://picsum.photos/id/24/400/240" alt="Nara fans and atmosphere">
+        <div class="img-caption">📣 Fans supporting the African League dream</div>
+      </div>
+    </div>
+    <p style="margin-top: 0.8rem; font-size:0.9rem; text-align:center;">✨ From local streets to continental stages — Cobra Sports and Nara Basketball Club represent the pride of African basketball.</p>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Nuru Basketball Club • Nairobi, Kenya</p>
-        <div class="social">
-            <a href="https://instagram.com" target="_blank">📷 Instagram</a>
-            <a href="https://facebook.com" target="_blank">📘 Facebook</a>
-            <a href="https://twitter.com" target="_blank">𝕏 Twitter</a>
-        </div>
-        <p style="margin-top: 1rem; font-size: 0.9rem;">
-            Contact: +254 700 123 456 | <a href="mailto:info@nurubasketball.com" style="color:#60a5fa;">info@nurubasketball.com</a>
-        </p>
-    </footer>
+  <!-- Additional historic note and legacy -->
+  <footer>
+    <p>🐍 Cobra Sports — fostering champions since 2010 | Nara Basketball Club — Official BAL participants | #FirstToBAL</p>
+    <p>📍 Follow our journey: <a href="#" style="color:#b64926; text-decoration:none;">Instagram</a> | <a href="#" style="color:#b64926;">Twitter</a> | <a href="#">YouTube</a> (Navigation sample hyperlinks)</p>
+    <p>© 2026 Cobra Sports Community | Hoops for all | First Basketball African League representatives from our region 🏀🌍</p>
+  </footer>
+</div>
 </body>
 </html>
