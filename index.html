@@ -1,586 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Baba K Sports | Nairobi Raptors – Pride of the Hunt</title>
-  <!-- Google Fonts & simple reset -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #0a0a0c;
-      color: #f0f0f0;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
-
-    /* color palette: midnight purple, sunburst gold, obsidian black, dark court tones */
-    :root {
-      --purple-deep: #2a1b3d;
-      --purple-midnight: #1e102c;
-      --gold-bright: #f5b042;
-      --gold-soft: #ffcd7e;
-      --obsidian: #0b0b0f;
-      --card-bg: #14141c;
-      --border-dim: rgba(245, 176, 66, 0.25);
-      --hover-gold: #f5a623;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* header navigation */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 32px;
-      flex-wrap: wrap;
-      gap: 20px;
-      background: rgba(11, 11, 15, 0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border-dim);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .logo h1 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      background: linear-gradient(135deg, #fff 30%, var(--gold-bright) 80%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .logo p {
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      color: var(--gold-soft);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      font-weight: 600;
-    }
-
-    .nav-links a {
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--gold-bright);
-    }
-
-    /* hero */
-    .hero {
-      background: linear-gradient(135deg, var(--purple-deep) 0%, var(--obsidian) 100%);
-      padding: 80px 24px;
-      text-align: center;
-      border-bottom: 2px solid var(--gold-bright);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "🐦‍⬛";
-      font-size: 220px;
-      opacity: 0.03;
-      position: absolute;
-      bottom: -30px;
-      right: -30px;
-      pointer-events: none;
-    }
-
-    .hero h2 {
-      font-size: 3.2rem;
-      font-weight: 800;
-      letter-spacing: -1px;
-    }
-
-    .hero .swahili {
-      font-size: 1.4rem;
-      color: var(--gold-bright);
-      font-weight: 600;
-      margin-top: 8px;
-      font-style: italic;
-    }
-
-    .hero p {
-      max-width: 650px;
-      margin: 24px auto;
-      font-size: 1.2rem;
-      color: #ddd;
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 16px;
-    }
-
-    .btn {
-      background: transparent;
-      border: 2px solid var(--gold-bright);
-      padding: 12px 32px;
-      font-weight: 700;
-      border-radius: 40px;
-      transition: all 0.25s;
-      cursor: pointer;
-      display: inline-block;
-      font-size: 0.95rem;
-    }
-
-    .btn-primary {
-      background: var(--gold-bright);
-      color: var(--obsidian);
-      border: none;
-    }
-
-    .btn-primary:hover {
-      background: var(--hover-gold);
-      transform: scale(1.02);
-    }
-
-    .btn-outline:hover {
-      background: var(--gold-bright);
-      color: #0a0a0c;
-      border-color: var(--gold-bright);
-    }
-
-    /* section titles */
-    .section-title {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 40px;
-      border-left: 5px solid var(--gold-bright);
-      padding-left: 20px;
-    }
-
-    .section-sub {
-      color: var(--gold-soft);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.85rem;
-      margin-bottom: 8px;
-    }
-
-    /* about + club card */
-    .about-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      margin: 60px 0;
-    }
-
-    .about-text {
-      flex: 1.2;
-    }
-
-    .club-card {
-      flex: 0.9;
-      background: var(--card-bg);
-      border-radius: 28px;
-      padding: 28px;
-      border: 1px solid rgba(245, 176, 66, 0.3);
-      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.5);
-    }
-
-    .club-logo {
-      font-size: 3rem;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .colors {
-      display: flex;
-      gap: 12px;
-      margin: 20px 0;
-    }
-
-    .color-dot {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-    }
-
-    .purple-dot { background: #5a2d8c; }
-    .gold-dot { background: var(--gold-bright); }
-    .black-dot { background: #1f1f2b; }
-
-    .stat-row {
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid #2c2c36;
-      padding: 14px 0;
-    }
-
-    /* news grid */
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 28px;
-      margin: 40px 0;
-    }
-
-    .news-card {
-      background: var(--card-bg);
-      border-radius: 24px;
-      padding: 20px;
-      transition: transform 0.2s;
-      border: 1px solid #252530;
-    }
-
-    .news-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--gold-bright);
-    }
-
-    .news-date {
-      color: var(--gold-bright);
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    .news-card h3 {
-      margin: 12px 0 8px;
-      font-size: 1.35rem;
-    }
-
-    /* schedule table */
-    .schedule-table {
-      background: var(--card-bg);
-      border-radius: 28px;
-      overflow-x: auto;
-      margin: 40px 0;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 1rem;
-    }
-
-    th, td {
-      text-align: left;
-      padding: 18px 20px;
-      border-bottom: 1px solid #2a2a35;
-    }
-
-    th {
-      color: var(--gold-bright);
-      font-weight: 700;
-    }
-
-    .ticket-link {
-      background: none;
-      border: 1px solid var(--gold-bright);
-      padding: 6px 16px;
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      transition: 0.2s;
-      display: inline-block;
-    }
-
-    .ticket-link:hover {
-      background: var(--gold-bright);
-      color: black;
-    }
-
-    /* merch */
-    .merch-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-      margin: 40px 0;
-    }
-
-    .merch-item {
-      background: var(--card-bg);
-      border-radius: 24px;
-      padding: 20px;
-      text-align: center;
-      border: 1px solid #2c2c36;
-    }
-
-    .merch-img {
-      font-size: 4rem;
-      margin-bottom: 12px;
-    }
-
-    .price {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--gold-bright);
-      margin: 12px 0;
-    }
-
-    /* partners */
-    .partners {
-      background: var(--purple-midnight);
-      border-radius: 48px;
-      padding: 32px 40px;
-      margin: 60px 0;
-      text-align: center;
-    }
-
-    .partner-logos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 42px;
-      margin-top: 24px;
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: #ccc;
-    }
-
-    /* footer */
-    footer {
-      background: var(--obsidian);
-      margin-top: 60px;
-      padding: 40px 24px 24px;
-      border-top: 1px solid var(--border-dim);
-    }
-
-    .footer-inner {
-      max-width: 1280px;
-      margin: auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 32px;
-    }
-
-    .social-icons {
-      display: flex;
-      gap: 20px;
-      font-size: 1.3rem;
-    }
-
-    .copyright {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 0.8rem;
-      color: #7e7e8c;
-    }
-
-    @media (max-width: 780px) {
-      .navbar {
-        flex-direction: column;
-        text-align: center;
-      }
-      .hero h2 {
-        font-size: 2.2rem;
-      }
-      .section-title {
-        font-size: 1.8rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyumbaspot - Find Rental Houses, Apartments & Bedsitters in Kenya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link to your CSS file here -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header>
-  <div class="navbar">
-    <div class="logo">
-      <h1>BABA K SPORTS</h1>
-      <p>FOR THE CULTURE • FOR THE CITY • FOR THE GAME</p>
-    </div>
-    <div class="nav-links">
-      <a href="#">HOME</a>
-      <a href="#raptors">THE RAPTORS</a>
-      <a href="#schedule">SCHEDULE</a>
-      <a href="#merch">MERCH</a>
-      <a href="#hive">THE HIVE</a>
-    </div>
-  </div>
-</header>
-
-<main>
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <h2>NAIROBI RAPTORS</h2>
-    <div class="swahili">“Kula Kwa Nguvu” — Eat with Power</div>
-    <p>The new kings of Kenyan basketball. Built by Baba K Sports, fueled by the streets of Nairobi. Hunt as a pack, reign as one.</p>
-    <div class="btn-group">
-      <a href="#merch" class="btn btn-primary">🛒 BUY MERCH</a>
-      <a href="#schedule" class="btn btn-outline">📅 2025 SEASON SCHEDULE</a>
-    </div>
-  </section>
-
-  <div class="container">
-    <!-- ABOUT + CLUB CARD (like twende's "Basketball for the future" dynamic) -->
-    <div class="about-grid" id="raptors">
-      <div class="about-text">
-        <div class="section-sub">MOVEMENT</div>
-        <div class="section-title">Baba K Sports: Building The Nest</div>
-        <p style="margin-bottom: 20px; font-size: 1.05rem;">Baba K Sports isn't just a brand—it's a movement. Founded to give Nairobi a basketball identity that echoes across Africa, we built the <strong>Nairobi Raptors</strong> from the ground up. We blend the grit of the city's streetball courts with the precision of professional training. We are the hunters. This is our nest.</p>
-        <p style="color: #bbbbcc;">From the grassroots academies to the roar of the Raptors’ Nest, we represent ambition, resilience, and the unstoppable rhythm of Nairobi. <strong>#TwendeNaRaptors</strong></p>
-      </div>
-
-      <div class="club-card">
-        <div class="club-logo">
-          🦅🏀 NAIROBI RAPTORS
+    <!-- Header Navigation -->
+    <header id="header" class="scrolled">
+        <div class="container">
+            <nav class="navbar">
+                <a href="/" class="logo">
+                    <div class="logo-icon"><i class="fas fa-home"></i></div>
+                    Nyumbaspot
+                </a>
+                <ul class="nav-links">
+                    <li><a href="/" class="nav-link">Home</a></li>
+                    <li><a href="/about/" class="nav-link">About</a></li>
+                    <li><a href="/properties/" class="nav-link">Properties</a></li>
+                    <li><a href="/map/" class="nav-link">Map</a></li>
+                    <li><a href="/blog/" class="nav-link">Blog</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="/login/" class="btn btn-outline">Sign In</a>
+                    <a href="/signup/" class="btn btn-primary">Sign Up</a>
+                </div>
+                <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
+            </nav>
         </div>
-        <div class="colors">
-          <div class="color-dot purple-dot"></div>
-          <div class="color-dot gold-dot"></div>
-          <div class="color-dot black-dot"></div>
-          <span style="margin-left: 8px;">Midnight Purple / Sunburst Gold / Obsidian</span>
-        </div>
-        <div><strong>Motto:</strong> “Tunawinda Kwa Kundi” (We Hunt as a Pack)</div>
-        <div style="margin: 16px 0 8px;"><strong>Club facts</strong></div>
-        <div class="stat-row"><span>🏆 Founded:</span><span>2025 by Baba K Sports</span></div>
-        <div class="stat-row"><span>🏟️ Home Court:</span><span>The Raptors' Nest (Uhuru Gardens Arena)</span></div>
-        <div class="stat-row"><span>🧑‍🏫 Head Coach:</span><span>Mwangi "The Claw" Otieno</span></div>
-        <div class="stat-row"><span>📊 KBF Record:</span><span>7-1 (1st in standings)</span></div>
-        <div class="stat-row"><span>⭐ Star Player:</span><span>Jabali “Air” Achieng’</span></div>
-      </div>
-    </div>
+    </header>
 
-    <!-- NEWS SECTION (inspired by twende articles) -->
-    <div>
-      <div class="section-title">📰 RAPTORS INSIDER</div>
-      <div class="news-grid">
-        <div class="news-card">
-          <div class="news-date">🔥 June 1, 2025</div>
-          <h3>Raptors sign 6'9" South Sudanese center ahead of BAL qualifiers</h3>
-          <p>The rookie blocked 12 shots in his debut scrimmage. "This is a dynasty," says Baba K. The frontcourt just got a whole lot scarier for the East Division.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Find Your Perfect <span>Rental Home</span> in Kenya</h1>
+                <p class="hero-subtitle">Nyumbaspot connects tenants with verified landlords, making house hunting simple, fast, and secure.</p>
+                <div class="hero-actions">
+                    <a href="#search" class="btn btn-primary">Find a Home</a>
+                    <a href="/list-property/" class="btn btn-outline">List a Property</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <!-- Floating house cards would go here -->
+            </div>
         </div>
-        <div class="news-card">
-          <div class="news-date">💰 May 24, 2025</div>
-          <h3>Why Nairobi Raptors' jersey drop broke the internet</h3>
-          <p>The purple & gold "Feather Edition" sold out in 4 hours. Restock coming June 15th. Fans lined up from Kencom to the Nest.</p>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section" id="search">
+        <div class="container">
+            <h2 class="section-title">Find Your Dream Home</h2>
+            <div class="search-container">
+                <form class="search-form">
+                    <div class="form-group">
+                        <label>Location</label>
+                        <input type="text" placeholder="Where do you want to live?">
+                    </div>
+                    <div class="form-group">
+                        <label>Property Type</label>
+                        <select>
+                            <option value="">Any Type</option>
+                            <option value="bedsitter">Bed-sitter</option>
+                            <option value="1br">1 Bedroom</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary search-btn">Search Properties</button>
+                </form>
+            </div>
         </div>
-        <div class="news-card">
-          <div class="news-date">🌱 May 18, 2025</div>
-          <h3>Raptors Academy: First youth team to compete in East Africa</h3>
-          <p>Baba K Sports invests in the future with an U-18 team scouted from Kibera and Eastlands. Development meets ambition.</p>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Nyumbaspot?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Verified Listings</h3>
+                    <p>All our landlords and properties are verified to ensure authentic listings.</p>
+                </div>
+                <!-- Add more feature cards as needed -->
+            </div>
         </div>
-      </div>
-    </div>
+    </section>
 
-    <!-- GAME SCHEDULE -->
-    <div id="schedule">
-      <div class="section-title">📅 GAME SCHEDULE • 2025 SEASON</div>
-      <div class="schedule-table">
-        <table>
-          <thead>
-            <tr><th>DATE</th><th>OPPONENT</th><th>LOCATION</th><th>TIME (EAT)</th><th>ACTION</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Sat, June 14</td><td>Coastal Sharks (Mombasa)</td><td>Raptors' Nest</td><td>7:00 PM</td><td><a href="#" class="ticket-link">🎫 NEST PASS</a></td></tr>
-            <tr><td>Sat, June 21</td><td>Nakuru Blaze</td><td>Away (Nakuru)</td><td>4:00 PM</td><td><a href="#" class="ticket-link">📺 WATCH LIVE</a></td></tr>
-            <tr><td>Sat, June 28</td><td>KCB Lions</td><td>Raptors' Nest</td><td>7:00 PM</td><td><a href="#" class="ticket-link">🐝 HIVE PRESALE</a></td></tr>
-            <tr><td>Sat, July 5</td><td>Mombasa Rhinos</td><td>Raptors' Nest</td><td>6:30 PM</td><td><a href="#" class="ticket-link">🎟️ GET TICKETS</a></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- MERCH SECTION -->
-    <div id="merch">
-      <div class="section-title">🔥 OFFICIAL MERCHANDISE</div>
-      <div class="merch-grid">
-        <div class="merch-item">
-          <div class="merch-img">🦅👕</div>
-          <h3>"The Raptor" Authentic Jersey</h3>
-          <p>Purple with gold feather-pattern trim. Breathable mesh, authentic player edition.</p>
-          <div class="price">KSh 4,500</div>
-          <a href="#" class="btn-outline" style="display: inline-block; padding: 8px 28px; border-radius: 40px;">ADD TO CART</a>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="logo">Nyumbaspot</div>
+                    <p>Kenya's leading rental property platform.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/properties/">Properties</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Nyumbaspot. All rights reserved.</p>
+            </div>
         </div>
-        <div class="merch-item">
-          <div class="merch-img">🧥🏀</div>
-          <h3>"Baba K" Sideline Hoodie</h3>
-          <p>Black with large embroidered Raptor eye logo. Coaches' edition, premium fleece.</p>
-          <div class="price">KSh 6,000</div>
-          <a href="#" class="btn-outline" style="display: inline-block; padding: 8px 28px; border-radius: 40px;">ADD TO CART</a>
-        </div>
-        <div class="merch-item">
-          <div class="merch-img">🧢✨</div>
-          <h3>The Hive Cap</h3>
-          <p>Gold snapback with the Raptor's eye logo. Structured fit, official sideline gear.</p>
-          <div class="price">KSh 1,800</div>
-          <a href="#" class="btn-outline" style="display: inline-block; padding: 8px 28px; border-radius: 40px;">ADD TO CART</a>
-        </div>
-      </div>
-    </div>
+    </footer>
 
-    <!-- THE HIVE (fan club) -->
-    <div id="hive">
-      <div class="section-title">🐝 THE HIVE • OFFICIAL FAN COLLECTIVE</div>
-      <div style="background: #12121c; border-radius: 28px; padding: 32px; margin: 30px 0; text-align: center;">
-        <p style="font-size: 1.3rem; margin-bottom: 16px;">Join the loudest fans in African basketball. <strong>Early access, meet & greets, and exclusive merch drops.</strong></p>
-        <a href="#" class="btn-primary" style="background: var(--gold-bright); color: black; padding: 12px 38px;">JOIN THE PACK →</a>
-        <p style="margin-top: 20px; font-size: 0.85rem;">✨ Free membership for students & first 500 members get a Raptors bandana ✨</p>
-      </div>
-    </div>
-
-    <!-- PARTNERS (like twende sports) -->
-    <div class="partners">
-      <div style="font-weight: 700; font-size: 1.3rem;">🏀 PARTNERS AND SPONSORS</div>
-      <div class="partner-logos">
-        <span>🏆 SportPesa</span>
-        <span>🏛️ Nairobi County</span>
-        <span>🐾 Puma</span>
-        <span>🏦 KCB</span>
-        <span>🍗 Chicken Inn</span>
-        <span>💧 Aquamist</span>
-      </div>
-      <p style="margin-top: 24px; font-size: 0.8rem;">Official partners of the Nairobi Raptors & Baba K Sports</p>
-    </div>
-  </div>
-</main>
-
-<footer>
-  <div class="footer-inner">
-    <div>
-      <h3 style="color: var(--gold-bright);">BABA K SPORTS</h3>
-      <p style="margin: 8px 0;">The future of Kenyan basketball.<br>Twende na Raptors!</p>
-    </div>
-    <div>
-      <strong>Contact</strong><br>
-      info@babaksports.com<br>
-      +254 700 123 456<br>
-      The Nest, Uhuru Gardens, Nairobi
-    </div>
-    <div>
-      <strong>Follow the Hunt</strong>
-      <div class="social-icons">
-        <span>📘</span> <span>🐦</span> <span>📸</span> <span>🎥</span>
-      </div>
-      <div style="margin-top: 12px;">@NairobiRaptors</div>
-    </div>
-  </div>
-  <div class="copyright">
-    © 2025 Baba K Sports – Built for the culture. All wings locked. | #RaptorsPride
-  </div>
-</footer>
-
-<!-- small interactive hover (just for style) -->
 </body>
 </html>
