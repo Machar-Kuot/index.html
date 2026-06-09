@@ -3,115 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nyumbaspot - Find Rental Houses, Apartments & Bedsitters in Kenya</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Link to your CSS file here -->
-    <link rel="stylesheet" href="styles.css">
+    <title>Hero Section</title>
+    <style>
+        :root {
+            --color-primary: #07c8f9;
+            --color-secondary: #09a6f3;
+            --color-heading: #333;
+            --color-text: #444;
+            --white: #fff;
+            --gray: #6c757d;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --gradient-primary: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(7, 200, 249, 0.1) 0%, rgba(13, 65, 225, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            padding: 120px 0 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--color-heading);
+        }
+
+        .hero-title span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--color-text);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .btn-primary { background: var(--gradient-primary); color: var(--white); box-shadow: var(--shadow); border: none; }
+        .btn-outline { background: transparent; color: var(--color-primary); border: 2px solid var(--color-primary); }
+
+        .hero-stats { display: flex; gap: 30px; }
+        .stat-value { font-size: 2rem; font-weight: 700; color: var(--color-primary); display: block; }
+        .stat-label { font-size: 0.9rem; color: var(--gray); }
+
+        .hero-visual {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-card:nth-child(1) { top: 20%; right: 10%; animation-delay: 0s; }
+        .floating-card:nth-child(2) { top: 50%; right: 25%; animation-delay: 2s; }
+        .floating-card:nth-child(3) { bottom: 20%; right: 15%; animation-delay: 4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @media (max-width: 768px) {
+            .hero { text-align: center; }
+            .hero-content { max-width: 100%; }
+            .hero-visual { display: none; }
+            .hero-actions, .hero-stats { justify-content: center; }
+        }
+    </style>
 </head>
 <body>
-
-    <!-- Header Navigation -->
-    <header id="header" class="scrolled">
-        <div class="container">
-            <nav class="navbar">
-                <a href="/" class="logo">
-                    <div class="logo-icon"><i class="fas fa-home"></i></div>
-                    Nyumbaspot
-                </a>
-                <ul class="nav-links">
-                    <li><a href="/" class="nav-link">Home</a></li>
-                    <li><a href="/about/" class="nav-link">About</a></li>
-                    <li><a href="/properties/" class="nav-link">Properties</a></li>
-                    <li><a href="/map/" class="nav-link">Map</a></li>
-                    <li><a href="/blog/" class="nav-link">Blog</a></li>
-                </ul>
-                <div class="nav-actions">
-                    <a href="/login/" class="btn btn-outline">Sign In</a>
-                    <a href="/signup/" class="btn btn-primary">Sign Up</a>
-                </div>
-                <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">Find Your Perfect <span>Rental Home</span> in Kenya</h1>
                 <p class="hero-subtitle">Nyumbaspot connects tenants with verified landlords, making house hunting simple, fast, and secure.</p>
                 <div class="hero-actions">
-                    <a href="#search" class="btn btn-primary">Find a Home</a>
-                    <a href="/list-property/" class="btn btn-outline">List a Property</a>
+                    <a href="#" class="btn btn-primary">Find a Home</a>
+                    <a href="#" class="btn btn-outline">List a Property</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-value">10K+</span>
+                        <span class="stat-label">Properties</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">5K+</span>
+                        <span class="stat-label">Tenants</span>
+                    </div>
                 </div>
             </div>
+
             <div class="hero-visual">
-                <!-- Floating house cards would go here -->
+                <div class="floating-card"><h4>Roysambu</h4><p>Ksh 15,000</p></div>
+                <div class="floating-card"><h4>Kilimani</h4><p>Ksh 25,000</p></div>
+                <div class="floating-card"><h4>Westlands</h4><p>Ksh 35,000</p></div>
             </div>
         </div>
     </section>
-
-    <!-- Search Section -->
-    <section class="search-section" id="search">
-        <div class="container">
-            <h2 class="section-title">Find Your Dream Home</h2>
-            <div class="search-container">
-                <form class="search-form">
-                    <div class="form-group">
-                        <label>Location</label>
-                        <input type="text" placeholder="Where do you want to live?">
-                    </div>
-                    <div class="form-group">
-                        <label>Property Type</label>
-                        <select>
-                            <option value="">Any Type</option>
-                            <option value="bedsitter">Bed-sitter</option>
-                            <option value="1br">1 Bedroom</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary search-btn">Search Properties</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <h2 class="section-title">Why Choose Nyumbaspot?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Verified Listings</h3>
-                    <p>All our landlords and properties are verified to ensure authentic listings.</p>
-                </div>
-                <!-- Add more feature cards as needed -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <div class="logo">Nyumbaspot</div>
-                    <p>Kenya's leading rental property platform.</p>
-                </div>
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/properties/">Properties</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2026 Nyumbaspot. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
 </body>
 </html>
