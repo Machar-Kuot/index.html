@@ -229,4 +229,32 @@ footer{
         margin-left:5%;
         margin-right:5%;
     }
+
+.registration{
+    background:#151515;
+}
+
+#registrationForm{
+    display:grid;
+    gap:15px;
+    max-width:600px;
+    margin:auto;
+}
+
+#registrationForm input,
+#registrationForm select{
+    padding:15px;
+    border:none;
+    border-radius:6px;
+    background:#1f1f1f;
+    color:white;
+    font-size:16px;
+}
+
+#message{
+    text-align:center;
+    margin-top:20px;
+    font-weight:bold;
+    color:#00d26a;
+}
 }
