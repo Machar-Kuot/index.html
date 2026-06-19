@@ -8,13 +8,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* ------------------------------------------------------------------
      1. WEEKEND FIXTURES POPUP
-     Shows automatically a beat after every page load.
+     Shows once per page load. Closing via the × or clicking outside
+     lets it reappear later (e.g. via a "Show fixtures" trigger), but
+     clicking "Got it" dismisses it for the rest of this page session
+     — it only comes back if the page is reloaded.
      ------------------------------------------------------------------ */
   var overlay = document.getElementById('fixturesOverlay');
   var closeBtn = document.getElementById('fixturesClose');
   var dismissBtn = document.getElementById('fixturesDismiss');
+  var dismissedForSession = false;
 
   function openFixtures() {
+    if (dismissedForSession) return;
     overlay.hidden = false;
     document.body.style.overflow = 'hidden';
     dismissBtn.focus();
@@ -31,11 +36,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (closeBtn) closeBtn.addEventListener('click', closeFixtures);
 
-  // "Got it" closes the popup, then brings it right back
+  // "Got it" closes the popup and keeps it hidden until the page reloads
   if (dismissBtn) {
     dismissBtn.addEventListener('click', function () {
+      dismissedForSession = true;
       closeFixtures();
-      setTimeout(openFixtures, 600);
     });
   }
 
