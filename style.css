@@ -687,6 +687,10 @@ h2 {
   padding: 1.5rem;
 }
 
+.fixtures-overlay[hidden] {
+  display: none;
+}
+
 .fixtures-modal {
   position: relative;
   background: var(--cream);
