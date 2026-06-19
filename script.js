@@ -8,12 +8,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* ------------------------------------------------------------------
      1. WEEKEND FIXTURES POPUP
-     Shows once per browser session, a beat after the page loads.
+     Shows automatically a beat after every page load.
      ------------------------------------------------------------------ */
   var overlay = document.getElementById('fixturesOverlay');
   var closeBtn = document.getElementById('fixturesClose');
   var dismissBtn = document.getElementById('fixturesDismiss');
-  var SESSION_KEY = 'tigersFixturesSeen';
 
   function openFixtures() {
     overlay.hidden = false;
@@ -24,15 +23,21 @@ document.addEventListener('DOMContentLoaded', function () {
   function closeFixtures() {
     overlay.hidden = true;
     document.body.style.overflow = '';
-    sessionStorage.setItem(SESSION_KEY, '1');
   }
 
-  if (overlay && !sessionStorage.getItem(SESSION_KEY)) {
+  if (overlay) {
     setTimeout(openFixtures, 1200);
   }
 
   if (closeBtn) closeBtn.addEventListener('click', closeFixtures);
-  if (dismissBtn) dismissBtn.addEventListener('click', closeFixtures);
+
+  // "Got it" closes the popup, then brings it right back
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', function () {
+      closeFixtures();
+      setTimeout(openFixtures, 600);
+    });
+  }
 
   if (overlay) {
     overlay.addEventListener('click', function (e) {
@@ -171,3 +176,4 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 });
+
