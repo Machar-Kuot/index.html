@@ -1,60 +1,173 @@
-// Welcome Popup
+/* ==========================================================================
+   KINGS SPORTS | TIGER BASKETBALL CLUB — script.js
+   1. Weekend fixtures popup
+   2. Registration form validation (name, email, phone, gender)
+   ========================================================================== */
 
-window.onload = function () {
-    alert(
-        "🏀 Welcome to Basketball Club!\n\nJoin our team and become part of a winning culture."
-    );
-};
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* ------------------------------------------------------------------
+     1. WEEKEND FIXTURES POPUP
+     Shows once per browser session, a beat after the page loads.
+     ------------------------------------------------------------------ */
+  var overlay = document.getElementById('fixturesOverlay');
+  var closeBtn = document.getElementById('fixturesClose');
+  var dismissBtn = document.getElementById('fixturesDismiss');
+  var SESSION_KEY = 'tigersFixturesSeen';
+
+  function openFixtures() {
+    overlay.hidden = false;
+    document.body.style.overflow = 'hidden';
+    dismissBtn.focus();
+  }
+
+  function closeFixtures() {
+    overlay.hidden = true;
+    document.body.style.overflow = '';
+    sessionStorage.setItem(SESSION_KEY, '1');
+  }
+
+  if (overlay && !sessionStorage.getItem(SESSION_KEY)) {
+    setTimeout(openFixtures, 1200);
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeFixtures);
+  if (dismissBtn) dismissBtn.addEventListener('click', closeFixtures);
+
+  if (overlay) {
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) closeFixtures();
+    });
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay && !overlay.hidden) closeFixtures();
+  });
 
 
-// Registration Form Validation
+  /* ------------------------------------------------------------------
+     2. REGISTRATION FORM VALIDATION
+     ------------------------------------------------------------------ */
+  var form = document.getElementById('registerForm');
+  if (!form) return;
 
-document
-.getElementById("registrationForm")
-.addEventListener("submit", function(event){
+  var nameInput = document.getElementById('regName');
+  var emailInput = document.getElementById('regEmail');
+  var phoneInput = document.getElementById('regPhone');
+  var genderInputs = form.querySelectorAll('input[name="gender"]');
+  var successMsg = document.getElementById('formSuccess');
 
-    event.preventDefault();
+  var nameError = document.getElementById('nameError');
+  var emailError = document.getElementById('emailError');
+  var phoneError = document.getElementById('phoneError');
+  var genderError = document.getElementById('genderError');
 
-    let name =
-        document.getElementById("name").value.trim();
+  // Standard, practical email rule: local@domain.tld
+  var EMAIL_RULE = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  // Accepts digits, spaces, dashes, optional leading +, 8–15 digits total
+  var PHONE_RULE = /^\+?[0-9\s-]{8,15}$/;
 
-    let email =
-        document.getElementById("email").value.trim();
+  function setError(el, msg) {
+    el.textContent = msg;
+  }
 
-    let phone =
-        document.getElementById("phone").value.trim();
+  function clearError(el) {
+    el.textContent = '';
+  }
 
-    let gender =
-        document.getElementById("gender").value;
-
-    let message =
-        document.getElementById("message");
-
-    // Email Validation
-
-    let emailPattern =
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if(!emailPattern.test(email)){
-        alert("Please enter a valid email address.");
-        return;
+  function validateName() {
+    var value = nameInput.value.trim();
+    if (value.length === 0) {
+      setError(nameError, 'Please enter your full name.');
+      return false;
     }
-
-    // Phone Validation
-
-    let phonePattern =
-        /^[0-9]{10,15}$/;
-
-    if(!phonePattern.test(phone)){
-        alert(
-            "Phone number must contain only numbers and be 10-15 digits long."
-        );
-        return;
+    if (value.length < 2) {
+      setError(nameError, 'Name must be at least 2 characters.');
+      return false;
     }
+    clearError(nameError);
+    return true;
+  }
 
-    message.innerHTML =
-        `✅ Registration Successful! Welcome ${name}.`;
+  function validateEmail() {
+    var value = emailInput.value.trim();
+    if (value.length === 0) {
+      setError(emailError, 'Please enter your email address.');
+      return false;
+    }
+    if (!EMAIL_RULE.test(value)) {
+      setError(emailError, 'Enter a valid email, e.g. name@example.com.');
+      return false;
+    }
+    clearError(emailError);
+    return true;
+  }
 
-    document.getElementById("registrationForm").reset();
+  function validatePhone() {
+    var value = phoneInput.value.trim();
+    if (value.length === 0) {
+      setError(phoneError, 'Please enter your phone number.');
+      return false;
+    }
+    if (!PHONE_RULE.test(value)) {
+      setError(phoneError, 'Enter a valid phone number (8–15 digits, may start with +).');
+      return false;
+    }
+    clearError(phoneError);
+    return true;
+  }
+
+  function validateGender() {
+    var checked = Array.prototype.some.call(genderInputs, function (input) {
+      return input.checked;
+    });
+    if (!checked) {
+      setError(genderError, 'Please select a gender.');
+      return false;
+    }
+    clearError(genderError);
+    return true;
+  }
+
+  // Live validation as the user types/selects
+  nameInput.addEventListener('blur', validateName);
+  emailInput.addEventListener('blur', validateEmail);
+  phoneInput.addEventListener('blur', validatePhone);
+  genderInputs.forEach(function (input) {
+    input.addEventListener('change', validateGender);
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var isNameValid = validateName();
+    var isEmailValid = validateEmail();
+    var isPhoneValid = validatePhone();
+    var isGenderValid = validateGender();
+
+    if (isNameValid && isEmailValid && isPhoneValid && isGenderValid) {
+      var selectedGender = Array.prototype.find.call(genderInputs, function (input) {
+        return input.checked;
+      }).value;
+
+      successMsg.textContent =
+        'Thanks, ' + nameInput.value.trim() + '! Your registration has been received.';
+      successMsg.classList.add('visible');
+
+      form.reset();
+      [nameError, emailError, phoneError, genderError].forEach(clearError);
+
+      // Replace this with a real submission (fetch/AJAX) when a backend is ready.
+      console.log('Registration submitted:', {
+        name: nameInput.value,
+        email: emailInput.value,
+        phone: phoneInput.value,
+        gender: selectedGender
+      });
+    } else {
+      successMsg.classList.remove('visible');
+      successMsg.textContent = '';
+    }
+  });
 
 });
