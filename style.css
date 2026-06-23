@@ -155,18 +155,28 @@ h2 {
 
 .hero {
   position: relative;
-  background:
-    linear-gradient(rgba(15, 18, 16, 0.72), rgba(15, 18, 16, 0.82)),
-    url('https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1600&q=80') center/cover no-repeat;
+  background: var(--ink);
   color: var(--cream);
   overflow: hidden;
   padding: 6rem 1.5rem 5rem;
+}
+
+.hero-video-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .hero-court-lines {
   position: absolute;
   inset: 0;
   pointer-events: none;
+  z-index: 1;
   background:
     repeating-linear-gradient(
       115deg,
@@ -179,6 +189,7 @@ h2 {
 
 .hero-inner {
   position: relative;
+  z-index: 2;
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
